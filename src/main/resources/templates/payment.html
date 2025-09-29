@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <form action="#" th:action="@{/}" th:object="${paymentForm}" method="post">
+            <table>
+                <tr>
+                    <td>Сумма, €:</td>
+                    <td><input type="number" step="0.01" th:field="*{amount}" required/></td>
+                    <td th:if="${#fields.hasErrors('amount')}">Введите сумму от 0.01 до 1,000,000,000.00</td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Оплатить</button></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
